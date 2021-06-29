@@ -10,3 +10,17 @@ spirv_cross = { version="0.23.1", features=["hlsl", "msl", "glsl", "default"] }
 rspirv = "0.7.0"
 spirv_headers = "1.5.0"
 shaderc = "0.7.2"
+
+[features]
+# default = ["vulkan", "opengl", "metal", "dx"]
+vulkan = []
+opengl = []
+metal = []
+dx = []
+
+# macos = ["metal"]
+# windows = ["dx"]
+# linux = ["opengl", "vulkan"]
+
+[target.'cfg(any(target_os = "macos"))'.features]
+default = ["metal"]
