@@ -29,7 +29,7 @@ fn example(module: spirv_cross::spirv::Module) -> Result<(), ErrorCode> {
         match ast.compile() {
             Ok(result) => {
                 // std::fs::cre
-                let mut file = File::create("src/out/out.hlsl").expect("");
+                let mut file = File::create("out/out.hlsl").expect("");
                 file.write_all(result.as_bytes()).expect("");
             }
             Err(code) => eprintln!("ERROR: {:?}", code),
@@ -43,7 +43,7 @@ fn example(module: spirv_cross::spirv::Module) -> Result<(), ErrorCode> {
         match ast.compile() {
             Ok(result) => {
                 // std::fs::cre
-                let mut file = File::create("src/out/out.glsl").expect("");
+                let mut file = File::create("out/out.glsl").expect("");
                 file.write_all(result.as_bytes()).expect("");
             }
             Err(code) => eprintln!("ERROR: {:?}", code),
@@ -57,7 +57,7 @@ fn example(module: spirv_cross::spirv::Module) -> Result<(), ErrorCode> {
 
         match ast.compile() {
             Ok(result) => {
-                let mut file = File::create("src/out/out.metal").expect("");
+                let mut file = File::create("out/out.metal").expect("");
                 file.write_all(result.as_bytes()).expect("");
             }
             Err(code) => eprintln!("ERROR: {:?}", code),
@@ -96,7 +96,7 @@ fn main() {
             )
             .unwrap();
 
-        let mut sp = File::create("src/out/out.spvasm").unwrap();
+        let mut sp = File::create("out/out.spvasm").unwrap();
         sp.write_all(asm.as_text().as_bytes()).unwrap();
     }
 
